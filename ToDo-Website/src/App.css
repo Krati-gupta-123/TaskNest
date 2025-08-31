@@ -1,0 +1,247 @@
+* {
+  box-sizing: border-box;
+}
+
+.page-container {
+  padding: 1.5rem;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #18181b, #27272a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.page-container.light-mode {
+  background: linear-gradient(to bottom, #f3f4f6, #e5e7eb);
+}
+
+.inner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 72rem;
+}
+
+.title {
+  font-size: 3.75rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.theme-toggle {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  background: #3f3f46;
+  color: white;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle.light-mode {
+  background: #e5e7eb;
+  color: #111;
+}
+
+.task-input-container {
+  margin-bottom: 2rem;
+  display: flex;
+  width: 100%;
+  max-width: 32rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.task-input {
+  flex-grow: 1;
+  padding: 0.75rem;
+  background-color: #3f3f46;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+.page-container.light-mode .task-input {
+  background-color: #fff;
+  color: #000;
+}
+
+.task-select {
+  padding: 0.75rem;
+  background-color: #3f3f46;
+  color: white;
+  border: 1px solid #52525b;
+}
+
+.page-container.light-mode .task-select {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+}
+
+.add-btn {
+  padding: 0 1.5rem;
+  background: linear-gradient(to right, #ca8a04, #d97706);
+  color: white;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.add-btn:hover {
+  background: linear-gradient(to right, #eab308, #d97706);
+}
+
+.columns-container {
+  display: flex;
+  gap: 5.9rem;
+  overflow-x: auto;
+  padding-bottom: 1.5rem;
+  width: 100%;
+}
+
+.column {
+  flex-shrink: 0;
+  width: 20rem;
+  background-color: #27272a;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.25);
+}
+
+.page-container.light-mode .column {
+  background-color: #fff;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.column-header {
+  padding: 1rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1.25rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.page-container.light-mode .column-header {
+  color: #111;
+}
+
+.todo-header {
+  background: linear-gradient(to right, #6a0dad, #b57edc);
+  border-top: 4px solid #b57edc;
+}
+
+.inprogress-header {
+  background: linear-gradient(to right, #065f46, #34d399);
+  border-top: 4px solid #34d399;
+}
+
+.done-header {
+  background: linear-gradient(to left, #b91c1c, #f87171);
+  border-top: 4px solid #f87171;
+}
+
+.task-count {
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background-color: rgba(39, 39, 42, 0.3);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}
+
+.column-body {
+  padding: 0.75rem;
+  min-height: 16rem;
+}
+
+.drop-placeholder {
+  text-align: center;
+  padding: 2.5rem 0;
+  color: #a1a1aa;
+  font-style: italic;
+  font-size: 0.875rem;
+}
+
+.page-container.light-mode .drop-placeholder {
+  color: #6b7280;
+}
+
+.task-card {
+  color: white;
+  background-color: #2f2f2f;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 12px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.page-container.light-mode .task-card {
+  background-color: #f9fafb;
+  color: #111;
+}
+
+.task-card span {
+  display: block;
+  word-wrap: break-word;
+}
+
+.remove-btn {
+  margin-left: 245px;
+}
+
+.edit-btn {
+  margin-left: 120px;
+  border-radius: 10px;
+}
+
+.edit-btn:hover {
+  background-color: rgb(0, 0, 0);
+  color: rgba(255, 255, 255, 0.828);
+}
+
+.task-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.page-container.light-mode .task-card:hover {
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.remove-btn {
+  color: #a1a1aa;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+}
+
+.remove-btn:hover {
+  color: #f87171;
+  background-color: #52525b;
+}
+
+.page-container.light-mode .remove-btn:hover {
+  background-color: #d1d5db;
+}
